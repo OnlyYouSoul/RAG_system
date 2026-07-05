@@ -1,0 +1,1101 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "编译运行环境说明"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                386,
+                128,
+                610,
+                151
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "整体说明"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                146,
+                170,
+                317,
+                190
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1.参赛选手所提交的源码压缩包，由系统解压后自动编译运行，生成竞赛结果。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                204,
+                801,
+                221
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2.运行参赛选手源码的操作系统为x86_64 的Linux 操作系统;"
+                    }
+                ]
+            },
+            "bbox": [
+                179,
+                231,
+                667,
+                249
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "二、 编译环境"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                146,
+                262,
+                317,
+                284
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. C/C++"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                297,
+                258,
+                313
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "make: GNU Make 4.3"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                325,
+                389,
+                341
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "gcc: gcc 11.4.0"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                354,
+                342,
+                370
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "g++: g++ 11.4.0"
+                    }
+                ]
+            },
+            "bbox": [
+                183,
+                381,
+                349,
+                398
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2. Java"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                409,
+                243,
+                424
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "OpenJDK1.8.0_492"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                436,
+                371,
+                454
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": " 3. Python"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                464,
+                262,
+                481
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Python: python 3.10.12(numpy=2.2.6)"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                492,
+                504,
+                510
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "三、SDK目录必须包含内容"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                146,
+                521,
+                468,
+                544
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1.C语言"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                183,
+                557,
+                253,
+                573
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/aa621927c4751fe0401daccedb2ad12b07ec65dc4258abaf60289e4ea1f72dc6.jpg"
+                },
+                "table_caption": [],
+                "table_footnote": [],
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>main.c</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                149,
+                577,
+                850,
+                720
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "HUAWEI HUAWEI"
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                45,
+                211,
+                91
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "编译运行环境说明"
+                    }
+                ]
+            },
+            "bbox": [
+                146,
+                77,
+                347,
+                92
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "第1页，共4页"
+                    }
+                ]
+            },
+            "bbox": [
+                749,
+                914,
+                843,
+                928
+            ]
+        }
+    ],
+    [
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/cc9aca14b18b477979087bfefa174243e8654afc70d6c22e10dc438840688ec2.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "2. C++"
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1> main.cpp</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                149,
+                133,
+                850,
+                275
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "3. Java"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                181,
+                284,
+                242,
+                298
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/d37a58c09fb56a3c6374b6278fac19fa99a7879a5046d56da0d77ffc64eec47f.jpg"
+                },
+                "table_caption": [],
+                "table_footnote": [],
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>Main.java</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                149,
+                303,
+                850,
+                445
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "4. Python"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                183,
+                453,
+                260,
+                468
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/48158582691c3f63f32741a28e639dd0bf9be3eb8e075f27ba737f75a2b16173.jpg"
+                },
+                "table_caption": [],
+                "table_footnote": [
+                    {
+                        "type": "text",
+                        "content": "说明："
+                    },
+                    {
+                        "type": "text",
+                        "content": "1．注意代码文件名main文件和AI模型预测结果文件严格与上述要求文件名一致。"
+                    },
+                    {
+                        "type": "text",
+                        "content": "2．每种支持的语言限定特定的文件后缀名，请严格保持一致。"
+                    }
+                ],
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>main.py</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                149,
+                472,
+                848,
+                614
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "C: .c,.h C++: .cpp, .h  Java: .java Python: .py"
+                    }
+                ]
+            },
+            "bbox": [
+                210,
+                707,
+                314,
+                807
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "3．支持多文件编译，C&CPP项目不支持子目录。所有源文件请保持和main文件在同一级目录下。"
+                    }
+                ]
+            },
+            "bbox": [
+                146,
+                816,
+                850,
+                862
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "HUAWEI HUAWEI"
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                43,
+                211,
+                90
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "编译运行环境说明"
+                    }
+                ]
+            },
+            "bbox": [
+                146,
+                77,
+                347,
+                91
+            ]
+        },
+        {
+            "type": "page_footer",
+            "content": {
+                "page_footer_content": [
+                    {
+                        "type": "text",
+                        "content": "第2页，共4页"
+                    }
+                ]
+            },
+            "bbox": [
+                749,
+                914,
+                842,
+                928
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "四、压缩文件说明"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                146,
+                114,
+                368,
+                135
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1．选手提交的压缩包应为zip格式，请采用常用的压缩软件压缩。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                149,
+                680,
+                166
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2．压缩包直接打开即为项目文件，请注意不要有额外一层目录嵌套。平台不对嵌套目录进行处理。 (请参考提供的语言示例提交代码)"
+                    }
+                ]
+            },
+            "bbox": [
+                146,
+                177,
+                845,
+                222
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "例如："
+                    }
+                ]
+            },
+            "bbox": [
+                146,
+                233,
+                196,
+                249
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "注意：如果只做第一题必须包含results.csv+model文件夹，如果只做第二题必须包含main.c文件。"
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                260,
+                801,
+                305
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/8774df39b4ba19b31fafcd6f42b83ff9bdc72a737fede7ffbe61770cf3f10d78.jpg"
+                },
+                "image_caption": [],
+                "image_footnote": []
+            },
+            "bbox": [
+                154,
+                311,
+                850,
+                636
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "五、补充说明"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                146,
+                699,
+                317,
+                720
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. C/C++"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                734,
+                258,
+                751
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "C/C++工程均采用Makefile编译(系统解压文件后，自动在目录下添加，不需要选手提供)，编译优化级别为02"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                762,
+                836,
+                806
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "选手新增代码文件需在一级目录下，否则会编译失败。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                816,
+                636,
+                834
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "不允许引用第三方库。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                845,
+                389,
+                862
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "C++语言编写的源代码支持C++17特性。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                872,
+                524,
+                889
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "第3页，共4页"
+                    }
+                ]
+            },
+            "bbox": [
+                749,
+                914,
+                843,
+                928
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "HUAWEI HUAWEI"
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                45,
+                211,
+                91
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "编译运行环境说明"
+                    }
+                ]
+            },
+            "bbox": [
+                146,
+                77,
+                347,
+                91
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2. Java"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                181,
+                114,
+                243,
+                129
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "不允许引用第三方库。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                140,
+                391,
+                156
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "系统支持jdk1.8版本，请在此版本下进行源码开发。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                167,
+                611,
+                185
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "3. Python"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                181,
+                197,
+                262,
+                214
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "系统支持python3.10.12版本，请在该版本下进行源码开发。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                223,
+                668,
+                240
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "除numpy外，不允许引用其他第三方库。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                252,
+                529,
+                268
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "参赛选手提交的源码会在系统上直接运行，因此请保证main.py在一级目录下，不可修改该文件名称。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                279,
+                847,
+                323
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "4.其他"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                181,
+                334,
+                247,
+                350
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "提交csv文件支持的编码为UTF-8-SIG，其他文件支持的编码为UTF-8。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                362,
+                763,
+                379
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "压缩包中不能带有任何运行时调用的文件，包括可执行程序、动态库、数据表。平台在运行选手程序之前会清理所有文件，只保留最终程序,故运行时对压缩包中的文件调用均会失败。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                390,
+                847,
+                463
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": ". 上传源码压缩包中所包含的目录不得含有以下合法字符集以外的任何字符;"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                473,
+                796,
+                491
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "目录名合法的命名字符集：英文大写字母“A-Z”、英文小写字母“a-z”、数字“0-9”、英文短横线“-”、英文下划线“_”。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                501,
+                840,
+                546
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "上传到源码压缩包中所包含的文件名不得含有以下合法字符集以外的任何字符，且“.”符号不得连续出现。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                557,
+                833,
+                601
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "文件名合法的命名字符集：英文大写字母“A-Z”、英文小写字母“a-z”、数字“0-9”、英文短横线“-”、英文下划线“_”、英文点“.”。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                612,
+                842,
+                658
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "选手程序的编译运行均在linux下，选手提交前可尝试在linux平台下编译成功，以免造成编译失败。"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                668,
+                845,
+                713
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "HUAWEI HUAWEI"
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                45,
+                211,
+                91
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "编译运行环境说明"
+                    }
+                ]
+            },
+            "bbox": [
+                146,
+                77,
+                347,
+                92
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "第4页，共4页"
+                    }
+                ]
+            },
+            "bbox": [
+                749,
+                914,
+                843,
+                928
+            ]
+        }
+    ]
+]

@@ -1,0 +1,13 @@
+{
+  "document_id": "doc_0394f3ee9b87aa6e",
+  "kb_id": "demo",
+  "title": "compile_env",
+  "source_file": "compile_env.pdf",
+  "source_path": "/home/zhang/project/RAG_System/compile_env.pdf",
+  "doc_type": "pdf",
+  "file_hash": "0394f3ee9b87aa6efbca8e0bfe4f062852a0771537553a6fd30a8cbe528a0408",
+  "language": "zh",
+  "department": "研发部",
+  "ingested_at": "2026-07-03T13:22:20.764696+00:00",
+  "total_chunks": 52
+}

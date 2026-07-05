@@ -1,0 +1,1725 @@
+[
+    {
+        "layout_dets": [
+            {
+                "cls_id": 13,
+                "label": "header_image",
+                "score": 0.9056,
+                "bbox": [
+                    245,
+                    106,
+                    351,
+                    215
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.6826,
+                "bbox": [
+                    244,
+                    182,
+                    577,
+                    217
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8983,
+                "bbox": [
+                    641,
+                    300,
+                    1010,
+                    355
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9604,
+                "bbox": [
+                    243,
+                    398,
+                    526,
+                    447
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9559,
+                "bbox": [
+                    301,
+                    478,
+                    1325,
+                    519
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9541,
+                "bbox": [
+                    299,
+                    544,
+                    1103,
+                    584
+                ],
+                "index": 6
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9594,
+                "bbox": [
+                    244,
+                    614,
+                    527,
+                    665
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9302,
+                "bbox": [
+                    302,
+                    697,
+                    430,
+                    734
+                ],
+                "index": 8
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9464,
+                "bbox": [
+                    302,
+                    762,
+                    647,
+                    798
+                ],
+                "index": 9
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9461,
+                "bbox": [
+                    302,
+                    828,
+                    567,
+                    867
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.941,
+                "bbox": [
+                    303,
+                    892,
+                    579,
+                    932
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9302,
+                "bbox": [
+                    301,
+                    957,
+                    404,
+                    994
+                ],
+                "index": 12
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9474,
+                "bbox": [
+                    302,
+                    1022,
+                    615,
+                    1062
+                ],
+                "index": 13
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9371,
+                "bbox": [
+                    301,
+                    1088,
+                    434,
+                    1126
+                ],
+                "index": 14
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9493,
+                "bbox": [
+                    301,
+                    1152,
+                    835,
+                    1193
+                ],
+                "index": 15
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9611,
+                "bbox": [
+                    243,
+                    1222,
+                    776,
+                    1273
+                ],
+                "index": 16
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.7807,
+                "bbox": [
+                    304,
+                    1303,
+                    422,
+                    1341
+                ],
+                "index": 17
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9888,
+                "bbox": [
+                    248,
+                    1351,
+                    1406,
+                    1684
+                ],
+                "index": 18,
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>main.c</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>"
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.7777,
+                "bbox": [
+                    1240,
+                    2138,
+                    1395,
+                    2170
+                ],
+                "index": 19
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    244,
+                    185,
+                    356,
+                    217
+                ],
+                "score": 0.999,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    243,
+                    181,
+                    355,
+                    217
+                ],
+                "score": 0.998,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    368,
+                    182,
+                    578,
+                    216
+                ],
+                "score": 1.0,
+                "text": "编译运行环境说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    363,
+                    764,
+                    644,
+                    796
+                ],
+                "score": 0.974,
+                "text": "make: GNU Make 4.3"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    360,
+                    1022,
+                    614,
+                    1063
+                ],
+                "score": 1.0,
+                "text": "OpenJDK1.8.0_492"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    643,
+                    297,
+                    1009,
+                    357
+                ],
+                "score": 1.0,
+                "text": "编译运行环境说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    348,
+                    395,
+                    527,
+                    451
+                ],
+                "score": 1.0,
+                "text": "整体说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    260,
+                    626,
+                    310,
+                    658
+                ],
+                "score": 0.998,
+                "text": "二、"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    344,
+                    612,
+                    526,
+                    667
+                ],
+                "score": 0.901,
+                "text": "编译环境"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    358,
+                    829,
+                    564,
+                    867
+                ],
+                "score": 0.991,
+                "text": "gcc: gcc 11.4.0"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    359,
+                    895,
+                    576,
+                    929
+                ],
+                "score": 0.977,
+                "text": "g++: g++ 11.4.0"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    306,
+                    481,
+                    1325,
+                    514
+                ],
+                "score": 0.989,
+                "text": "1.参赛选手所提交的源码压缩包，由系统解压后自动编译运行，生成竞赛结果。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    304,
+                    545,
+                    1102,
+                    582
+                ],
+                "score": 0.963,
+                "text": "2.运行参赛选手源码的操作系统为x86_64 的Linux 操作系统;"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    302,
+                    695,
+                    428,
+                    737
+                ],
+                "score": 0.998,
+                "text": "1. C/C++"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    301,
+                    955,
+                    405,
+                    997
+                ],
+                "score": 0.983,
+                "text": "2. Java"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    300,
+                    1084,
+                    434,
+                    1130
+                ],
+                "score": 0.908,
+                "text": " 3. Python"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    301,
+                    1302,
+                    422,
+                    1342
+                ],
+                "score": 0.998,
+                "text": "1.C语言"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1239,
+                    2135,
+                    1395,
+                    2170
+                ],
+                "score": 0.995,
+                "text": "第1页，共4页"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    357,
+                    1149,
+                    836,
+                    1195
+                ],
+                "score": 0.989,
+                "text": "Python: python 3.10.12(numpy=2.2.6)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    247,
+                    1221,
+                    775,
+                    1275
+                ],
+                "score": 1.0,
+                "text": "三、SDK目录必须包含内容"
+            }
+        ],
+        "page_info": {
+            "page_no": 0,
+            "width": 1654,
+            "height": 2339
+        }
+    },
+    {
+        "layout_dets": [
+            {
+                "cls_id": 13,
+                "label": "header_image",
+                "score": 0.9031,
+                "bbox": [
+                    246,
+                    105,
+                    351,
+                    213
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.7696,
+                "bbox": [
+                    244,
+                    183,
+                    577,
+                    216
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.6509,
+                "bbox": [
+                    302,
+                    268,
+                    396,
+                    301
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9879,
+                "bbox": [
+                    248,
+                    312,
+                    1406,
+                    646
+                ],
+                "index": 4,
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1> main.cpp</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>"
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.6234,
+                "bbox": [
+                    302,
+                    664,
+                    402,
+                    698
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.988,
+                "bbox": [
+                    248,
+                    710,
+                    1406,
+                    1043
+                ],
+                "index": 6,
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>Main.java</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>"
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.5029,
+                "bbox": [
+                    303,
+                    1061,
+                    432,
+                    1096
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9877,
+                "bbox": [
+                    248,
+                    1104,
+                    1405,
+                    1438
+                ],
+                "index": 8,
+                "html": "<table><tr><td rowspan=1 colspan=1>文件名</td><td rowspan=1 colspan=1>是否可以修改</td><td rowspan=1 colspan=1>是否需要上传</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>main.py</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>main文件</td></tr><tr><td rowspan=1 colspan=1>results. csv</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>AI模型预测结果</td></tr><tr><td rowspan=1 colspan=1>Model文件夹</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>√</td><td rowspan=1 colspan=1>模型训练和测试的代码(要求可复现results.csv)</td></tr></table>"
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.8725,
+                "bbox": [
+                    303,
+                    1454,
+                    384,
+                    1493
+                ],
+                "index": 9
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.8669,
+                "bbox": [
+                    302,
+                    1519,
+                    1339,
+                    1560
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.7939,
+                "bbox": [
+                    300,
+                    1584,
+                    1106,
+                    1624
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5758,
+                "bbox": [
+                    348,
+                    1653,
+                    520,
+                    1888
+                ],
+                "index": 12
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9386,
+                "bbox": [
+                    243,
+                    1910,
+                    1407,
+                    2015
+                ],
+                "index": 13
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.6288,
+                "bbox": [
+                    1240,
+                    2138,
+                    1394,
+                    2170
+                ],
+                "index": 14
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    245,
+                    187,
+                    354,
+                    216
+                ],
+                "score": 0.998,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    245,
+                    181,
+                    356,
+                    217
+                ],
+                "score": 0.996,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    369,
+                    183,
+                    576,
+                    215
+                ],
+                "score": 1.0,
+                "text": "编译运行环境说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    305,
+                    1518,
+                    1340,
+                    1559
+                ],
+                "score": 0.998,
+                "text": "1．注意代码文件名main文件和AI模型预测结果文件严格与上述要求文件名一致。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    303,
+                    1586,
+                    1106,
+                    1623
+                ],
+                "score": 0.999,
+                "text": "2．每种支持的语言限定特定的文件后缀名，请严格保持一致。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    299,
+                    262,
+                    401,
+                    306
+                ],
+                "score": 0.946,
+                "text": "2. C++"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    300,
+                    660,
+                    405,
+                    702
+                ],
+                "score": 0.97,
+                "text": "3. Java"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    301,
+                    1056,
+                    435,
+                    1100
+                ],
+                "score": 0.988,
+                "text": "4. Python"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1240,
+                    2135,
+                    1395,
+                    2170
+                ],
+                "score": 0.997,
+                "text": "第2页，共4页"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    302,
+                    1452,
+                    388,
+                    1497
+                ],
+                "score": 0.988,
+                "text": "说明："
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    351,
+                    1648,
+                    473,
+                    1693
+                ],
+                "score": 0.891,
+                "text": "C: .c,.h"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    352,
+                    1714,
+                    520,
+                    1759
+                ],
+                "score": 0.959,
+                "text": "C++: .cpp, .h"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    350,
+                    1781,
+                    490,
+                    1825
+                ],
+                "score": 0.955,
+                "text": " Java: .java"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    351,
+                    1844,
+                    501,
+                    1894
+                ],
+                "score": 0.994,
+                "text": "Python: .py"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    304,
+                    1912,
+                    1405,
+                    1945
+                ],
+                "score": 0.997,
+                "text": "3．支持多文件编译，C&CPP项目不支持子目录。所有源文件请保持和main文件在同一"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    244,
+                    1973,
+                    387,
+                    2012
+                ],
+                "score": 1.0,
+                "text": "级目录下。"
+            }
+        ],
+        "page_info": {
+            "page_no": 1,
+            "width": 1654,
+            "height": 2339
+        }
+    },
+    {
+        "layout_dets": [
+            {
+                "cls_id": 13,
+                "label": "header_image",
+                "score": 0.9004,
+                "bbox": [
+                    245,
+                    106,
+                    351,
+                    215
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.5542,
+                "bbox": [
+                    244,
+                    183,
+                    577,
+                    216
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9608,
+                "bbox": [
+                    243,
+                    269,
+                    610,
+                    319
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9563,
+                "bbox": [
+                    301,
+                    350,
+                    1127,
+                    390
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9787,
+                "bbox": [
+                    243,
+                    416,
+                    1398,
+                    520
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8235,
+                "bbox": [
+                    243,
+                    546,
+                    325,
+                    585
+                ],
+                "index": 6
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8803,
+                "bbox": [
+                    240,
+                    609,
+                    1327,
+                    715
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.937,
+                "bbox": [
+                    258,
+                    730,
+                    1408,
+                    1487
+                ],
+                "index": 8
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9527,
+                "bbox": [
+                    243,
+                    1635,
+                    526,
+                    1685
+                ],
+                "index": 9
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8976,
+                "bbox": [
+                    300,
+                    1719,
+                    430,
+                    1756
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9743,
+                "bbox": [
+                    300,
+                    1781,
+                    1384,
+                    1886
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9523,
+                "bbox": [
+                    301,
+                    1911,
+                    1055,
+                    1951
+                ],
+                "index": 12
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.95,
+                "bbox": [
+                    302,
+                    1976,
+                    647,
+                    2014
+                ],
+                "index": 13
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9538,
+                "bbox": [
+                    301,
+                    2041,
+                    868,
+                    2079
+                ],
+                "index": 14
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.5293,
+                "bbox": [
+                    1239,
+                    2137,
+                    1395,
+                    2170
+                ],
+                "index": 15
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    244,
+                    185,
+                    356,
+                    217
+                ],
+                "score": 0.999,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    245,
+                    181,
+                    356,
+                    217
+                ],
+                "score": 0.996,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    369,
+                    183,
+                    576,
+                    215
+                ],
+                "score": 1.0,
+                "text": "编译运行环境说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    1979,
+                    644,
+                    2011
+                ],
+                "score": 1.0,
+                "text": "不允许引用第三方库。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    244,
+                    267,
+                    609,
+                    322
+                ],
+                "score": 1.0,
+                "text": "四、压缩文件说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    245,
+                    1634,
+                    526,
+                    1688
+                ],
+                "score": 1.0,
+                "text": "五、补充说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    308,
+                    353,
+                    1127,
+                    387
+                ],
+                "score": 0.993,
+                "text": "1．选手提交的压缩包应为zip格式，请采用常用的压缩软件压缩。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    302,
+                    1717,
+                    427,
+                    1757
+                ],
+                "score": 0.995,
+                "text": "1. C/C++"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1240,
+                    2136,
+                    1396,
+                    2171
+                ],
+                "score": 0.994,
+                "text": "第3页，共4页"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    243,
+                    541,
+                    329,
+                    587
+                ],
+                "score": 0.958,
+                "text": "例如："
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    305,
+                    419,
+                    1396,
+                    453
+                ],
+                "score": 0.994,
+                "text": "2．压缩包直接打开即为项目文件，请注意不要有额外一层目录嵌套。平台不对嵌套目"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    249,
+                    482,
+                    878,
+                    515
+                ],
+                "score": 0.968,
+                "text": "录进行处理。 (请参考提供的语言示例提交代码)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    247,
+                    611,
+                    1324,
+                    648
+                ],
+                "score": 0.998,
+                "text": "注意：如果只做第一题必须包含results.csv+model文件夹，如果只做第二题必须包含"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    242,
+                    675,
+                    411,
+                    715
+                ],
+                "score": 1.0,
+                "text": "main.c文件。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    360,
+                    1784,
+                    1380,
+                    1818
+                ],
+                "score": 0.999,
+                "text": "C/C++工程均采用Makefile编译(系统解压文件后，自动在目录下添加，不需要选"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    1847,
+                    736,
+                    1884
+                ],
+                "score": 0.978,
+                "text": "手提供)，编译优化级别为02"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    363,
+                    1914,
+                    1052,
+                    1948
+                ],
+                "score": 1.0,
+                "text": "选手新增代码文件需在一级目录下，否则会编译失败。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    363,
+                    2043,
+                    867,
+                    2078
+                ],
+                "score": 1.0,
+                "text": "C++语言编写的源代码支持C++17特性。"
+            }
+        ],
+        "page_info": {
+            "page_no": 2,
+            "width": 1654,
+            "height": 2339
+        }
+    },
+    {
+        "layout_dets": [
+            {
+                "cls_id": 13,
+                "label": "header_image",
+                "score": 0.9201,
+                "bbox": [
+                    245,
+                    106,
+                    351,
+                    215
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.5085,
+                "bbox": [
+                    243,
+                    183,
+                    577,
+                    217
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9113,
+                "bbox": [
+                    300,
+                    268,
+                    403,
+                    303
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9461,
+                "bbox": [
+                    301,
+                    329,
+                    648,
+                    367
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9487,
+                "bbox": [
+                    302,
+                    394,
+                    1013,
+                    434
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9371,
+                "bbox": [
+                    302,
+                    463,
+                    434,
+                    500
+                ],
+                "index": 6
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9481,
+                "bbox": [
+                    301,
+                    524,
+                    1107,
+                    563
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.95,
+                "bbox": [
+                    301,
+                    589,
+                    876,
+                    629
+                ],
+                "index": 8
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9752,
+                "bbox": [
+                    301,
+                    653,
+                    1402,
+                    758
+                ],
+                "index": 9
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9376,
+                "bbox": [
+                    301,
+                    783,
+                    411,
+                    822
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9465,
+                "bbox": [
+                    301,
+                    849,
+                    1263,
+                    888
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9812,
+                "bbox": [
+                    301,
+                    913,
+                    1400,
+                    1084
+                ],
+                "index": 12
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9533,
+                "bbox": [
+                    302,
+                    1108,
+                    1317,
+                    1149
+                ],
+                "index": 13
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9759,
+                "bbox": [
+                    301,
+                    1173,
+                    1390,
+                    1279
+                ],
+                "index": 14
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9755,
+                "bbox": [
+                    301,
+                    1303,
+                    1378,
+                    1408
+                ],
+                "index": 15
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9749,
+                "bbox": [
+                    301,
+                    1433,
+                    1392,
+                    1540
+                ],
+                "index": 16
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.974,
+                "bbox": [
+                    300,
+                    1563,
+                    1398,
+                    1668
+                ],
+                "index": 17
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.6324,
+                "bbox": [
+                    1239,
+                    2138,
+                    1395,
+                    2170
+                ],
+                "index": 18
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    244,
+                    185,
+                    356,
+                    217
+                ],
+                "score": 0.999,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    244,
+                    182,
+                    356,
+                    216
+                ],
+                "score": 0.998,
+                "text": "HUAWEI"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    367,
+                    185,
+                    576,
+                    214
+                ],
+                "score": 1.0,
+                "text": "编译运行环境说明"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    332,
+                    645,
+                    364
+                ],
+                "score": 1.0,
+                "text": "不允许引用第三方库。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    310,
+                    1119,
+                    331,
+                    1137
+                ],
+                "score": 0.658,
+                "text": "."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    364,
+                    1108,
+                    1315,
+                    1146
+                ],
+                "score": 0.994,
+                "text": "上传源码压缩包中所包含的目录不得含有以下合法字符集以外的任何字符;"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    527,
+                    1106,
+                    562
+                ],
+                "score": 1.0,
+                "text": "系统支持python3.10.12版本，请在该版本下进行源码开发。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    301,
+                    263,
+                    405,
+                    305
+                ],
+                "score": 0.983,
+                "text": "2. Java"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    300,
+                    458,
+                    435,
+                    503
+                ],
+                "score": 0.977,
+                "text": "3. Python"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    300,
+                    782,
+                    411,
+                    825
+                ],
+                "score": 1.0,
+                "text": "4.其他"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1241,
+                    2137,
+                    1395,
+                    2169
+                ],
+                "score": 0.994,
+                "text": "第4页，共4页"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    360,
+                    655,
+                    1400,
+                    692
+                ],
+                "score": 1.0,
+                "text": "参赛选手提交的源码会在系统上直接运行，因此请保证main.py在一级目录下，不"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    719,
+                    620,
+                    756
+                ],
+                "score": 1.0,
+                "text": "可修改该文件名称。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    361,
+                    1171,
+                    1390,
+                    1214
+                ],
+                "score": 0.999,
+                "text": "目录名合法的命名字符集：英文大写字母“A-Z”、英文小写字母“a-z”、数字"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    371,
+                    1231,
+                    1010,
+                    1286
+                ],
+                "score": 0.998,
+                "text": "“0-9”、英文短横线“-”、英文下划线“_”。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    1306,
+                    1373,
+                    1340
+                ],
+                "score": 0.997,
+                "text": "上传到源码压缩包中所包含的文件名不得含有以下合法字符集以外的任何字符，"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    1369,
+                    713,
+                    1406
+                ],
+                "score": 0.999,
+                "text": "且“.”符号不得连续出现。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    350,
+                    1431,
+                    1390,
+                    1474
+                ],
+                "score": 0.999,
+                "text": "文件名合法的命名字符集：英文大写字母“A-Z”、英文小写字母“a-z”、数字"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    370,
+                    1488,
+                    1179,
+                    1547
+                ],
+                "score": 0.995,
+                "text": "“0-9”、英文短横线“-”、英文下划线“_”、英文点“.”。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    359,
+                    1566,
+                    1394,
+                    1600
+                ],
+                "score": 0.999,
+                "text": "选手程序的编译运行均在linux下，选手提交前可尝试在linux平台下编译成功，以"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    1630,
+                    588,
+                    1665
+                ],
+                "score": 1.0,
+                "text": "免造成编译失败。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    362,
+                    589,
+                    875,
+                    627
+                ],
+                "score": 1.0,
+                "text": "除numpy外，不允许引用其他第三方库。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    397,
+                    1011,
+                    432
+                ],
+                "score": 1.0,
+                "text": "系统支持jdk1.8版本，请在此版本下进行源码开发。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    362,
+                    849,
+                    1261,
+                    887
+                ],
+                "score": 1.0,
+                "text": "提交csv文件支持的编码为UTF-8-SIG，其他文件支持的编码为UTF-8。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    362,
+                    917,
+                    1375,
+                    952
+                ],
+                "score": 1.0,
+                "text": "压缩包中不能带有任何运行时调用的文件，包括可执行程序、动态库、数据表。"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    364,
+                    981,
+                    1399,
+                    1019
+                ],
+                "score": 0.999,
+                "text": "平台在运行选手程序之前会清理所有文件，只保留最终程序,故运行时对压缩包中"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    1047,
+                    646,
+                    1082
+                ],
+                "score": 1.0,
+                "text": "的文件调用均会失败。"
+            }
+        ],
+        "page_info": {
+            "page_no": 3,
+            "width": 1654,
+            "height": 2339
+        }
+    }
+]

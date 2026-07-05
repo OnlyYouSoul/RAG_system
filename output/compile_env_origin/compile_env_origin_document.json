@@ -1,0 +1,13 @@
+{
+  "document_id": "doc_8c9d6f26034624b0",
+  "kb_id": "kb_test01",
+  "title": "compile_env_origin",
+  "source_file": "compile_env_origin.pdf",
+  "source_path": "/home/zhang/project/RAG_System/output/compile_env/auto/compile_env_origin.pdf",
+  "doc_type": "pdf",
+  "file_hash": "8c9d6f26034624b0c40bab1651c287d491b676b7ede0e3d5491fd5e67ce43524",
+  "language": "zh",
+  "department": "算法组",
+  "ingested_at": "2026-07-03T12:48:49.822543+00:00",
+  "total_chunks": 52
+}

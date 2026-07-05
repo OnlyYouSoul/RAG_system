@@ -1,0 +1,16 @@
+[project]
+name = "rag-system"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mineru",
+    "minio>=7.2.20",
+    "openai>=2.44.0",
+    "pymilvus>=3.0.0",
+    "redis>=8.0.1",
+]
+
+[tool.uv.sources]
+mineru = { path = "../MinerU", editable = true }
