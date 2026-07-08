@@ -1,0 +1,125 @@
+services:
+  aistor-server:
+    image: quay.io/minio/aistor/minio:latest
+    container_name: aistor-server
+    command: minio server /mnt/data --console-address ":9001" --license /minio.license
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: "88888888"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - aistor-data:/mnt/data
+      - ./minio.license:/minio.license:ro
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.16
+    container_name: milvus-etcd
+    environment:
+      - ETCD_AUTO_COMPACTION_MODE=revision
+      - ETCD_AUTO_COMPACTION_RETENTION=1000
+      - ETCD_QUOTA_BACKEND_BYTES=4294967296
+      - ETCD_SNAPSHOT_COUNT=50000
+    volumes:
+      - etcd-data:/etcd
+    command: etcd -advertise-client-urls=http://etcd:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+    healthcheck:
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    restart: unless-stopped
+
+  milvus-standalone:
+    image: milvusdb/milvus:v3.0-beta
+    container_name: milvus-standalone
+    command: ["milvus", "run", "standalone"]
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: aistor-server:9000
+      MINIO_ACCESS_KEY_ID: admin
+      MINIO_SECRET_ACCESS_KEY: "88888888"
+      MINIO_BUCKET_NAME: milvus-bucket
+    volumes:
+      - milvus-data:/var/lib/milvus
+    ports:
+      - "19530:19530" 
+      - "9091:9091"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      start_period: 90s
+      timeout: 20s
+      retries: 3
+    depends_on:
+      etcd:
+        condition: service_started
+      aistor-server:
+        condition: service_healthy
+    restart: unless-stopped
+
+  redis:
+    image: redis:8
+    container_name: rag-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - rag-redis-data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:17
+    container_name: my-postgres17
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: rag
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build:
+      # 上级目录做 context，才能同时拿到 RAG_System 与可编辑依赖 MinerU
+      context: ..
+      dockerfile: RAG_System/Dockerfile
+    container_name: rag-app
+    env_file:
+      - .env
+    environment:
+      MINIO_ENDPOINT: aistor-server:9000
+      MINIO_PUBLIC_BASE_URL: http://aistor-server:9000/mineru
+      MILVUS_URI: http://milvus-standalone:19530
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./output:/app/RAG_System/output
+      - ./mineru_output:/app/RAG_System/mineru_output
+      - mineru-models:/root/.cache
+    depends_on:
+      milvus-standalone:
+        condition: service_healthy
+      aistor-server:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  aistor-data:
+  etcd-data:
+  milvus-data:
+  rag-redis-data:
+  pgdata:
+  mineru-models:

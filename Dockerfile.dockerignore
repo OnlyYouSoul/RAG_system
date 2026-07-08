@@ -1,0 +1,33 @@
+# BuildKit 专用忽略文件：<Dockerfile>.dockerignore，放在 Dockerfile 旁边即可被 git 跟踪。
+
+# 虚拟环境：RAG_System 与 MinerU 的都排除，绝不进镜像
+**/.venv/
+**/venv/
+**/myenv/
+**/__pycache__/
+**/*.pyc
+**/.git/
+**/.gitignore
+**/.claude/
+**/.github/
+**/.vscode/
+
+# 大体积 / 运行时产物，构建镜像不需要
+RAG_System/output/
+RAG_System/mineru_output/
+RAG_System/*.pdf
+RAG_System/docs/
+MinerU/**/*.pdf
+MinerU/Mineru_test/
+MinerU/Chapter*/
+
+# 与本项目无关的目录
+"Rag class/"
+
+# 模型权重等（运行时挂载，不进镜像）
+**/*.onnx
+**/*.pt
+**/*.pth
+**/*.safetensors
+
+**/.DS_Store
