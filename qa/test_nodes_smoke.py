@@ -17,8 +17,11 @@ _aq_mod = importlib.import_module("qa.nodes.analyze_query")
 _rw_mod = importlib.import_module("qa.nodes.rewrite_query")
 _rt_mod = importlib.import_module("qa.nodes.retrieve")
 _rr_mod = importlib.import_module("qa.nodes.rerank")
+_cc_mod = importlib.import_module("qa.nodes.compress_context")
+_ga_mod = importlib.import_module("qa.nodes.generate_answer")
 QueryAnalysis = _aq_mod.QueryAnalysis
 RewrittenQuery = _rw_mod.RewrittenQuery
+CompressedChunk = _cc_mod.CompressedChunk
 
 
 def _fake_analysis(intent: str, **filters):
@@ -45,10 +48,42 @@ def _fake_rewrite(rewritten: str):
     return _FakeModel()
 
 
+def _fake_compress():
+    """顶替 compress_context：抽取每段前 6 个字符，模拟压缩。"""
+
+    class _FakeModel:
+        def with_structured_output(self, schema):
+            assert schema is CompressedChunk, f"未预期的 schema: {schema}"
+            return RunnableLambda(
+                lambda _: CompressedChunk(relevant_text="压缩后的相关片段")
+            )
+
+    return _FakeModel()
+
+
+class _FakeMessage:
+    def __init__(self, content: str):
+        self.content = content
+
+
+def _fake_generation(answer: str):
+    """顶替 generate_answer 的对话模型（直接 prompt | model，返回带 .content 的消息）。"""
+    return RunnableLambda(lambda _: _FakeMessage(answer))
+
+
 def _fake_hits(*distances):
-    """按给定相似度分数造检索命中。"""
+    """按给定分数造检索命中（distance 现为 RRF 融合分）。
+
+    text 造得足够长（超过短文本护栏阈值 200），确保走 LLM 压缩分支，
+    从而验证 compress_context 的抽取逻辑。
+    """
     return [
-        {"distance": d, "text": f"chunk-{i}", "chunk_id": i, "title": "T"}
+        {
+            "distance": d,
+            "text": f"chunk-{i} " + "内容" * 120,  # ~240+ 字，越过短文本护栏
+            "chunk_id": i,
+            "title": "T",
+        }
         for i, d in enumerate(distances)
     ]
 
@@ -63,7 +98,7 @@ def main() -> None:
     ), patch.object(
         _rw_mod, "get_chat_model", return_value=_fake_rewrite("编译环境怎么配置？")
     ), patch.object(_rt_mod, "embed_query", return_value=[0.1] * 4), patch.object(
-        _rt_mod, "search", return_value=_fake_hits(0.82, 0.61, 0.20)
+        _rt_mod, "hybrid_search", return_value=_fake_hits(0.032, 0.016, 0.008)
     ) as search_mock, patch.object(
         _rr_mod, "is_configured", return_value=True
     ), patch.object(
@@ -73,6 +108,10 @@ def main() -> None:
         side_effect=lambda q, docs, top_n=None: [
             {"index": i, "score": float(i)} for i in reversed(range(len(docs)))
         ],
+    ), patch.object(
+        _cc_mod, "get_chat_model", return_value=_fake_compress()
+    ), patch.object(
+        _ga_mod, "get_chat_model", return_value=_fake_generation("根据资料，编译环境这样配置 [1]。")
     ):
         from qa import build_qa_graph
 
@@ -120,14 +159,27 @@ def main() -> None:
 
         # enough_context：有强命中 -> 充分
         assert out["has_enough_context"] is True, out
-        print("[ok] 检索问答:", out["intent"], "| 改写:", out["search_query"])
+
+        # compress_context：充分分支才跑；每条带 compressed_text，context 已拼接
+        assert len(out["compressed_hits"]) == 3, out["compressed_hits"]
+        assert all("compressed_text" in h for h in out["compressed_hits"]), out
+        assert out["compressed_hits"][0]["compressed_text"] == "压缩后的相关片段", out
+        assert "压缩后的相关片段" in out["context"], out["context"]
+
+        # generate_answer：充分分支 -> 基于压缩上下文作答 + 引用清单
+        assert out["answer"] == "根据资料，编译环境这样配置 [1]。", out["answer"]
+        assert len(out["citations"]) == 3, out["citations"]
+        assert out["citations"][0]["n"] == 1, out["citations"]
+        print("[ok] 检索问答:", out["intent"], "| 答案:", out["answer"])
 
     # 弱命中 + 无历史（rewrite 直接透传）+ rerank 未配置（透传）-> 上下文不足
     with patch.object(
         _aq_mod, "get_chat_model", return_value=_fake_analysis("retrieval_qa")
     ), patch.object(_rt_mod, "embed_query", return_value=[0.1] * 4), patch.object(
-        _rt_mod, "search", return_value=_fake_hits(0.10, 0.05)
-    ), patch.object(_rr_mod, "is_configured", return_value=False):
+        _rt_mod, "hybrid_search", return_value=_fake_hits(0.005, 0.003)
+    ), patch.object(_rr_mod, "is_configured", return_value=False), patch.object(
+        _ga_mod, "get_chat_model", return_value=_fake_generation("资料有限，仅能部分回答。")
+    ):
         from qa import build_qa_graph
 
         app = build_qa_graph()
@@ -138,11 +190,19 @@ def main() -> None:
         # rerank 未配置：命中原样透传（无 rerank_score）
         assert "rerank_score" not in out_weak["hits"][0], out_weak["hits"][0]
         assert out_weak["has_enough_context"] is False, out_weak
-        print("[ok] 弱命中不足 + rerank 透传:", out_weak["context_reason"])
+        # 不足分支：不进入压缩，无 context 产出
+        assert "compressed_hits" not in out_weak, out_weak
+        assert not out_weak.get("context"), out_weak
+        # generate_answer：不足分支仍生成兜底答案，并给出原始命中的引用
+        assert out_weak["answer"] == "资料有限，仅能部分回答。", out_weak
+        assert len(out_weak["citations"]) == 2, out_weak["citations"]
+        print("[ok] 弱命中兜底生成:", out_weak["answer"])
 
-    # 闲聊：无需过滤条件
+    # 闲聊：无需过滤条件，直连生成
     with patch.object(
         _aq_mod, "get_chat_model", return_value=_fake_analysis("chitchat")
+    ), patch.object(
+        _ga_mod, "get_chat_model", return_value=_fake_generation("你好呀，有什么可以帮你的？")
     ):
         from qa import build_qa_graph
 
@@ -151,7 +211,10 @@ def main() -> None:
         assert out_chat["intent"] == "chitchat", out_chat
         assert out_chat["filters"] == {}, out_chat
         assert out_chat["milvus_expr"] == "", out_chat
-        print("[ok] 闲聊短路:", out_chat["intent"])
+        # 闲聊直连生成：有答案、无引用
+        assert out_chat["answer"] == "你好呀，有什么可以帮你的？", out_chat
+        assert out_chat["citations"] == [], out_chat
+        print("[ok] 闲聊直连生成:", out_chat["answer"])
 
         # 空查询：校验失败，直接结束，不进入分析
         out2 = app.invoke({"query": "   "})

@@ -32,6 +32,11 @@ def main() -> None:
     parser.add_argument("--skip-parse", action="store_true", help="跳过 PDF 解析，复用已有 Markdown")
     parser.add_argument("--no-vision", action="store_true", help="只上传图片并替换链接，不调用视觉模型")
     parser.add_argument("--to-milvus", action="store_true")
+    parser.add_argument(
+        "--recreate",
+        action="store_true",
+        help="写入前 drop 并按最新 schema 重建 collection（schema 变更后重入库用，会清空旧数据）",
+    )
     args = parser.parse_args()
 
     load_dotenv(PROJECT_DIR / ".env")
@@ -109,6 +114,9 @@ def main() -> None:
 
     # 4. 向量化 + 写入 Milvus
     if args.to_milvus:
+        if args.recreate:
+            milvus.recreate_collection()
+            print(f"[Milvus] 已重建 collection：{milvus.MILVUS_COLLECTION}")
         vectors = embedding.embed_texts([chunk.text for chunk in chunks])
         print(f"[Embedding] 向量化完成：{len(vectors)} 条 x {embedding.EMBEDDING_DIM} 维")
         milvus.insert_chunks(chunks, vectors)

@@ -58,7 +58,13 @@ class QAState(TypedDict, total=False):
     # enough_context 产出
     has_enough_context: bool
     context_reason: str             # 判断依据，便于调试/审计
-    context: str
+
+    # compress_context 产出
+    compressed_hits: list[dict[str, Any]]  # 抽取压缩后的命中（保留 compressed_text）
+    context: str                    # 拼接好、可直接喂给生成节点的上下文
+
+    # generate_answer 产出
     answer: str
+    citations: list[dict[str, Any]]  # 引用来源（document_id / title / chunk_id）
 
     error: Optional[str]
