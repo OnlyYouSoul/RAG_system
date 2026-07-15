@@ -23,7 +23,7 @@ def get_chat_model() -> ChatOpenAI:
         "EMBEDDING_BASE_URL",
         default="https://api.siliconflow.cn/v1",
     )
-    model = _first_env("CHAT_MODEL", default="Qwen/Qwen2.5-7B-Instruct")
+    model = _first_env("CHAT_MODEL", default="Qwen/Qwen3.5-397B-A17B")
 
     return ChatOpenAI(
         model=model,
