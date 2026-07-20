@@ -11,8 +11,8 @@ from typing import Optional
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
-from qa.llm import get_chat_model
-from qa.state import QAState
+from rag_system.qa.llm import get_chat_model
+from rag_system.qa.state import QAState
 
 # 只取最近若干轮历史，避免 prompt 过长
 _MAX_HISTORY_TURNS = 6

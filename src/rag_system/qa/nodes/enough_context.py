@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import os
 
-from qa.state import QAState
+from rag_system.qa.state import QAState
 
 # 交叉编码器相关性阈值（rerank_score，0~1，越大越相关）
 _RERANK_THRESHOLD = float(os.getenv("QA_CONTEXT_RERANK_THRESHOLD", "0.2"))

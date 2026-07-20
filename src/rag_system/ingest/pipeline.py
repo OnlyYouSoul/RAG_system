@@ -9,20 +9,18 @@ from pathlib import Path
 from typing import Optional
 from urllib.parse import unquote
 
-from dotenv import load_dotenv
 from minio import Minio
 from minio.error import S3Error
 from openai import OpenAI
 
 
-# rewrite.py 所在目录：RAG_system/RAG_System
-PROJECT_DIR = Path(__file__).resolve().parent
+from rag_system import config
 
-# MinerU 源码目录：RAG_system/MinerU
-MINERU_SOURCE_DIR = PROJECT_DIR.parent / "MinerU"
+PROJECT_DIR = config.PROJECT_ROOT
+MINERU_SOURCE_DIR = config.MINERU_SOURCE_DIR
 
 # 把 MinerU 源码加入 import 路径，直接调用解析函数（不再起 CLI 子进程/本地服务）
-if str(MINERU_SOURCE_DIR) not in sys.path:    
+if str(MINERU_SOURCE_DIR) not in sys.path:
     sys.path.insert(0, str(MINERU_SOURCE_DIR))
 
 from mineru.cli.common import do_parse, read_fn  # noqa: E402
@@ -183,11 +181,11 @@ def init_vision_client() -> OpenAI:
 
 
 def main() -> None:
-    load_dotenv(PROJECT_DIR / ".env")
+    config.load_env()
 
     parser = argparse.ArgumentParser(description="MinerU 解析 PDF + 图片上传 MinIO + 视觉描述")
     parser.add_argument("--pdf", required=True, help="输入 PDF 文件路径")
-    parser.add_argument("--out", default=str(PROJECT_DIR / "mineru_output"), help="MinerU 输出目录")
+    parser.add_argument("--out", default=str(config.OUTPUT_DIR), help="MinerU 输出目录")
     parser.add_argument("--backend", default="pipeline", help="MinerU 后端，CPU 环境建议 pipeline")
     parser.add_argument("--lang", default="ch", help="OCR 语言，中文用 ch")
     parser.add_argument("--prefix", default=None, help="上传到 MinIO 的对象前缀")

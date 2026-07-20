@@ -24,10 +24,13 @@ def get_chat_model() -> ChatOpenAI:
         default="https://api.siliconflow.cn/v1",
     )
     model = _first_env("CHAT_MODEL", default="Qwen/Qwen3.5-397B-A17B")
+    # 输出 token 上限（兜底，防止异常长回答）。输入侧的膨胀在各节点单独治理。
+    max_tokens = int(_first_env("CHAT_MAX_TOKENS", default="2048"))
 
     return ChatOpenAI(
         model=model,
         api_key=api_key,
         base_url=base_url,
         temperature=0,
+        max_tokens=max_tokens,
     )

@@ -103,9 +103,11 @@ services:
       MINIO_PUBLIC_BASE_URL: http://aistor-server:9000/mineru
       MILVUS_URI: http://milvus-standalone:19530
       REDIS_URL: redis://redis:6379/0
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
     volumes:
       - ./output:/app/RAG_System/output
-      - ./mineru_output:/app/RAG_System/mineru_output
+      - ./data:/app/RAG_System/data
       - mineru-models:/root/.cache
     depends_on:
       milvus-standalone:
@@ -113,6 +115,8 @@ services:
       aistor-server:
         condition: service_healthy
       redis:
+        condition: service_started
+      postgres:
         condition: service_started
     restart: unless-stopped
 

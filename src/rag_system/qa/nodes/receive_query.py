@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from qa.state import QAState
+from rag_system.qa.state import QAState
 
 _DEFAULT_TOP_K = 5
 _MAX_TOP_K = 50

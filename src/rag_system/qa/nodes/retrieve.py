@@ -9,10 +9,10 @@
 
 from __future__ import annotations
 
-from utils.embedding import embed_query
-from utils.milvus import hybrid_search
+from rag_system.ingest.embedding import embed_query
+from rag_system.store.milvus import hybrid_search
 
-from qa.state import QAState
+from rag_system.qa.state import QAState
 
 # 返回给下游的实体字段
 _OUTPUT_FIELDS = [

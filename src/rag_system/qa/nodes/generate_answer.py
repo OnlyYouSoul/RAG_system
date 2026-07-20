@@ -11,15 +11,40 @@ LLM 不可用时回退为提示信息，不抛异常。
 
 from __future__ import annotations
 
+import json
+import os
 from typing import Any
 
 from langchain_core.prompts import ChatPromptTemplate
 
-from qa.llm import get_chat_model
-from qa.state import QAState
+from rag_system.qa.llm import get_chat_model
+from rag_system.qa.state import QAState
 
 # 用于拼接带编号的上下文，便于 LLM 引用 [n]
 _SOURCE_TEMPLATE = "[{n}] {text}"
+
+# metadata_qa：序列化后的结果行喂给 LLM 的总字符上限（兜底，防 prompt 膨胀）
+_METADATA_ROWS_MAX_CHARS = int(os.getenv("QA_METADATA_ROWS_MAX_CHARS", "6000"))
+
+# metadata_qa：把 SQL 查询结果转成自然语言
+_METADATA_SYSTEM = (
+    "你是一个知识库元数据助手。下面给出的是针对文档元数据的数据库查询结果"
+    "（JSON 行数组）。请用简洁、自然的中文回答用户问题。\n"
+    "要求：\n"
+    "1. 只依据查询结果作答，不要编造结果之外的内容。\n"
+    "2. 结果为空时如实说明「没有符合条件的文档」。\n"
+    "3. 涉及罗列时可用简短列表；涉及计数直接给出数字。"
+)
+
+_METADATA_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        ("system", _METADATA_SYSTEM),
+        (
+            "human",
+            "用户问题：{query}\n\n查询结果（共 {row_count} 行）：\n{rows}\n\n请据此作答。",
+        ),
+    ]
+)
 
 _CHITCHAT_PROMPT = ChatPromptTemplate.from_messages(
     [
@@ -83,6 +108,44 @@ def _generate_chitchat(query: str) -> QAState:
         return {"answer": f"（回复生成失败：{exc}）", "citations": []}
 
 
+def _generate_metadata(state: QAState) -> QAState:
+    """metadata_qa：基于 SQL 查询结果生成自然语言回答。
+
+    execute_sql 若最终仍失败（sql_error 有值、重试用尽），这里兜底提示。
+    """
+    query = state["query"]
+
+    if state.get("sql_error"):
+        return {
+            "answer": "抱歉，我没能把这个元数据问题转换成可执行的查询，请换个说法再试。",
+            "citations": [],
+        }
+
+    rows = state.get("sql_rows", []) or []
+    row_count = state.get("sql_row_count", len(rows)) or len(rows)
+    if not rows:
+        return {"answer": "没有找到符合条件的文档。", "citations": []}
+
+    # rows 已在 execute_sql 做过行数与单格截断，这里再对序列化后的总长度兜底，
+    # 防止极端情况下 payload 仍过大撑爆生成 prompt。
+    rows_json = json.dumps(rows, ensure_ascii=False, default=str)
+    if len(rows_json) > _METADATA_ROWS_MAX_CHARS:
+        rows_json = rows_json[:_METADATA_ROWS_MAX_CHARS] + "…（结果过多，已截断）"
+
+    try:
+        chain = _METADATA_PROMPT | get_chat_model()
+        resp = chain.invoke(
+            {
+                "query": query,
+                "row_count": row_count,
+                "rows": rows_json,
+            }
+        )
+        return {"answer": resp.content, "citations": []}
+    except Exception as exc:
+        return {"answer": f"（回答生成失败：{exc}）", "citations": []}
+
+
 def generate_answer(state: QAState) -> QAState:
     if state.get("error"):
         return {}
@@ -92,6 +155,10 @@ def generate_answer(state: QAState) -> QAState:
     # 1. 闲聊
     if state.get("intent") == "chitchat":
         return _generate_chitchat(query)
+
+    # 1b. 元数据问答：基于 SQL 结果作答
+    if state.get("intent") == "metadata_qa":
+        return _generate_metadata(state)
 
     # 2/3. 检索问答：优先用压缩后的命中，回退到原始命中
     hits = state.get("compressed_hits") or state.get("hits") or []

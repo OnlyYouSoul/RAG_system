@@ -12,8 +12,8 @@ from __future__ import annotations
 
 from langgraph.graph import StateGraph, START, END
 
-from qa.state import QAState
-from qa.nodes import (
+from rag_system.qa.state import QAState
+from rag_system.qa.nodes import (
     receive_query,
     analyze_query,
     rewrite_query,
@@ -21,8 +21,13 @@ from qa.nodes import (
     rerank,
     enough_context,
     compress_context,
+    generate_sql,
+    execute_sql,
     generate_answer,
 )
+
+# metadata_qa 分支：SQL 执行失败时最多重写重试的次数
+_MAX_SQL_ATTEMPTS = 2
 
 
 def _route_after_receive(state: QAState) -> str:
@@ -33,12 +38,24 @@ def _route_after_receive(state: QAState) -> str:
 
 
 def _route_after_analyze(state: QAState) -> str:
-    """闲聊直连生成；出错直接结束；否则进入检索流水线。"""
+    """闲聊直连生成；元数据问答走 SQL 分支；出错直接结束；否则进入检索流水线。"""
     if state.get("error"):
         return "end"
-    if state.get("intent") == "chitchat":
+    intent = state.get("intent")
+    if intent == "chitchat":
         return "chitchat"
+    if intent == "metadata_qa":
+        return "metadata"
     return "retrieve"
+
+
+def _route_after_execute_sql(state: QAState) -> str:
+    """SQL 执行/生成失败且未超重试上限 -> 回 generate_sql 带错重写；否则去生成答案。"""
+    if state.get("error"):
+        return "answer"
+    if state.get("sql_error") and state.get("sql_attempts", 0) < _MAX_SQL_ATTEMPTS:
+        return "retry"
+    return "answer"
 
 
 def _route_after_enough(state: QAState) -> str:
@@ -57,6 +74,8 @@ def build_qa_graph():
     graph.add_node("rerank", rerank)
     graph.add_node("enough_context", enough_context)
     graph.add_node("compress_context", compress_context)
+    graph.add_node("generate_sql", generate_sql)
+    graph.add_node("execute_sql", execute_sql)
     graph.add_node("generate_answer", generate_answer)
 
     graph.add_edge(START, "receive_query")
@@ -68,11 +87,24 @@ def build_qa_graph():
         {"continue": "analyze_query", "end": END},
     )
 
-    # 闲聊直连生成；检索问答进入检索流水线
+    # 闲聊直连生成；元数据问答走 SQL 分支；检索问答进入检索流水线
     graph.add_conditional_edges(
         "analyze_query",
         _route_after_analyze,
-        {"retrieve": "rewrite_query", "chitchat": "generate_answer", "end": END},
+        {
+            "retrieve": "rewrite_query",
+            "chitchat": "generate_answer",
+            "metadata": "generate_sql",
+            "end": END,
+        },
+    )
+
+    # 元数据分支：生成 SQL -> 执行；失败可回流重写一次，最终交给生成节点
+    graph.add_edge("generate_sql", "execute_sql")
+    graph.add_conditional_edges(
+        "execute_sql",
+        _route_after_execute_sql,
+        {"retry": "generate_sql", "answer": "generate_answer"},
     )
 
     graph.add_edge("rewrite_query", "retrieve")

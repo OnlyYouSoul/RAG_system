@@ -7,8 +7,8 @@ from typing import Any, Optional
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
-from qa.llm import get_chat_model
-from qa.state import QAState, QueryFilters
+from rag_system.qa.llm import get_chat_model
+from rag_system.qa.state import QAState, QueryFilters
 
 # LLM 不可用时选择的意图
 _FALLBACK_INTENT = "retrieval_qa"
@@ -18,7 +18,12 @@ _FILTERABLE_FIELDS = ("kb_id", "department", "doc_type", "language", "document_i
 
 # 意图类别，注入到 system_prompt 的 {{categories}}
 _INTENT_CATEGORIES = {
-    "retrieval_qa": "需要检索知识库才能准确回答（询问知识、事实、文档内容、操作方法等）",
+    "retrieval_qa": "需要检索知识库正文才能回答（询问知识、事实、文档内容、操作方法等）",
+    "metadata_qa": (
+        "针对文档元数据本身的统计/罗列/筛选类问题，无需看正文内容，"
+        "例如「policy 分类下有哪几篇文档」「7月10号入库的文档有哪些」"
+        "「infra 部门共有多少篇文档」「按入库时间列出最近的文档」"
+    ),
     "chitchat": "寒暄、问候、闲聊、情绪表达，或明显与知识库无关，无需检索",
 }
 
@@ -46,7 +51,8 @@ _DOC_TYPE_ALIASES = {
 class QueryAnalysis(BaseModel):
 
     intent: str = Field(
-        description="意图类别，只能是 'retrieval_qa'（需检索知识库）"
+        description="意图类别，只能是 'retrieval_qa'（需检索知识库正文）、"
+        "'metadata_qa'（针对文档元数据的统计/罗列/筛选，无需正文）"
         " 或 'chitchat'（闲聊、与知识库无关）",
     )
     confidence: float = Field(
@@ -179,8 +185,9 @@ def analyze_query(state: QAState) -> QAState:
     if error:
         out["error"] = error
 
-    # 闲聊无需过滤条件
-    if intent == "chitchat":
+    # 闲聊、元数据问答都不走 Milvus 检索，无需编译过滤表达式
+    # （metadata_qa 由 generate_sql 直接写 SQL 过滤）
+    if intent in ("chitchat", "metadata_qa"):
         out["filters"] = {}
         out["milvus_expr"] = ""
         return out

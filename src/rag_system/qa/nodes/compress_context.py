@@ -15,8 +15,8 @@ import os
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
-from qa.llm import get_chat_model
-from qa.state import QAState
+from rag_system.qa.llm import get_chat_model
+from rag_system.qa.state import QAState
 
 # 并发上限
 _MAX_CONCURRENCY = 5

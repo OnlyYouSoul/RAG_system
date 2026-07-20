@@ -32,9 +32,13 @@ htmlcov/
 .env.*
 !.env.example
 
-# 数据 / 模型产物（体积大，不入库）
-output/
-mineru_output/
+# 输入数据（PDF、本地 SQLite 库，体积大/含数据，不入库）
+data/
+
+# 产物目录：忽略内容，但保留目录说明与占位
+output/*
+!output/.gitkeep
+!output/README.md
 
 # 编辑器 / 系统
 .idea/

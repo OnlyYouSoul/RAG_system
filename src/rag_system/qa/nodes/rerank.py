@@ -9,9 +9,9 @@ rerank_score，并按其降序，同时截断到 top_k。
 
 from __future__ import annotations
 
-from utils.rerank import is_configured, rerank as _rerank_api
+from rag_system.rerank import is_configured, rerank as _rerank_api
 
-from qa.state import QAState
+from rag_system.qa.state import QAState
 
 
 def rerank(state: QAState) -> QAState:

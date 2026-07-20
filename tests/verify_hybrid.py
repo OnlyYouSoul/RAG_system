@@ -2,22 +2,21 @@
 
 从已解析的 chunks JSON 入库（自动建带 BM25 的新 schema），
 再对比 纯 dense vs 混合检索 的召回，确认 BM25 那一路生效。
-运行：python -m qa.verify_hybrid
+运行：python tests/verify_hybrid.py
 """
 
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
-from dotenv import load_dotenv
+from rag_system import config
+from rag_system.ingest import embedding
+from rag_system.store import milvus
+from rag_system.ingest.chunking import Chunk
 
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+config.load_env()
 
-from utils import embedding, milvus  # noqa: E402
-from utils.chunking import Chunk  # noqa: E402
-
-_CHUNKS_JSON = "output/compile_env/compile_env_chunks.json"
+_CHUNKS_JSON = str(config.OUTPUT_DIR / "compile_env" / "compile_env_chunks.json")
 
 
 def _load_chunks() -> list[Chunk]:
@@ -69,7 +68,7 @@ def main() -> None:
     print(f"\n混合检索新增（BM25 贡献）的 chunk_id: {sorted(only_hybrid) or '无（两路高度重合）'}")
 
     # 上下文压缩（真实 LLM 抽取式）
-    from qa.nodes.compress_context import compress_context
+    from rag_system.qa.nodes.compress_context import compress_context
 
     state = {"query": query, "search_query": query, "hits": hybrid}
     out = compress_context(state)
@@ -82,7 +81,7 @@ def main() -> None:
         print(f"  #{h.get('chunk_id')}: {h['compressed_text'][:80].replace(chr(10),' ')}")
 
     # 全链路：真实图跑一遍检索问答，看最终生成的答案 + 引用
-    from qa import build_qa_graph
+    from rag_system.qa import build_qa_graph
 
     app = build_qa_graph()
     print("\n[全链路 QA]")

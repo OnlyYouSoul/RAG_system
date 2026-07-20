@@ -65,14 +65,14 @@ docker run --rm --network project_default \
 
 ```bash
 docker compose exec app \
-  uv run python start.py \
-    --pdf compile_env.pdf \
+  uv run rag ingest \
+    --pdf data/pdfs/compile_env.pdf \
     --kb-id kb_demo \
     --department infra \
     --to-milvus
 ```
 
-把要处理的 PDF 放到 `RAG_System/` 下（已挂载），或调整 `--pdf` 路径。产物写入挂载出来的 `output/` 与 `mineru_output/`。
+把要处理的 PDF 放到 `RAG_System/data/pdfs/` 下（已挂载 `./data`），或调整 `--pdf` 路径。产物写入挂载出来的 `output/`。
 
 ## 常见问题
 

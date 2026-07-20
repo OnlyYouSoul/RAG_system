@@ -2,7 +2,7 @@
 
 用 RunnableLambda 顶替结构化输出模型，patch 掉 embed_query / search，
 验证节点数据流与图连接。
-运行：python -m qa.test_nodes_smoke
+运行：python tests/test_nodes_smoke.py
 """
 
 from __future__ import annotations
@@ -13,12 +13,12 @@ from unittest.mock import patch
 from langchain_core.runnables import RunnableLambda
 
 # 直接拿到子模块（qa.nodes 里同名函数会遮蔽属性，用 import_module 取模块本身）
-_aq_mod = importlib.import_module("qa.nodes.analyze_query")
-_rw_mod = importlib.import_module("qa.nodes.rewrite_query")
-_rt_mod = importlib.import_module("qa.nodes.retrieve")
-_rr_mod = importlib.import_module("qa.nodes.rerank")
-_cc_mod = importlib.import_module("qa.nodes.compress_context")
-_ga_mod = importlib.import_module("qa.nodes.generate_answer")
+_aq_mod = importlib.import_module("rag_system.qa.nodes.analyze_query")
+_rw_mod = importlib.import_module("rag_system.qa.nodes.rewrite_query")
+_rt_mod = importlib.import_module("rag_system.qa.nodes.retrieve")
+_rr_mod = importlib.import_module("rag_system.qa.nodes.rerank")
+_cc_mod = importlib.import_module("rag_system.qa.nodes.compress_context")
+_ga_mod = importlib.import_module("rag_system.qa.nodes.generate_answer")
 QueryAnalysis = _aq_mod.QueryAnalysis
 RewrittenQuery = _rw_mod.RewrittenQuery
 CompressedChunk = _cc_mod.CompressedChunk
@@ -113,7 +113,7 @@ def main() -> None:
     ), patch.object(
         _ga_mod, "get_chat_model", return_value=_fake_generation("根据资料，编译环境这样配置 [1]。")
     ):
-        from qa import build_qa_graph
+        from rag_system.qa import build_qa_graph
 
         app = build_qa_graph()
 
@@ -180,7 +180,7 @@ def main() -> None:
     ), patch.object(_rr_mod, "is_configured", return_value=False), patch.object(
         _ga_mod, "get_chat_model", return_value=_fake_generation("资料有限，仅能部分回答。")
     ):
-        from qa import build_qa_graph
+        from rag_system.qa import build_qa_graph
 
         app = build_qa_graph()
         out_weak = app.invoke({"query": "无关的冷门问题"})
@@ -204,7 +204,7 @@ def main() -> None:
     ), patch.object(
         _ga_mod, "get_chat_model", return_value=_fake_generation("你好呀，有什么可以帮你的？")
     ):
-        from qa import build_qa_graph
+        from rag_system.qa import build_qa_graph
 
         app = build_qa_graph()
         out_chat = app.invoke({"query": "你好呀"})

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Literal, Optional, TypedDict
 
 # 意图类别
-Intent = Literal["retrieval_qa", "chitchat"]
+Intent = Literal["retrieval_qa", "chitchat", "metadata_qa"]
 
 
 class QueryFilters(TypedDict, total=False):
@@ -62,6 +62,13 @@ class QAState(TypedDict, total=False):
     # compress_context 产出
     compressed_hits: list[dict[str, Any]]  # 抽取压缩后的命中（保留 compressed_text）
     context: str                    # 拼接好、可直接喂给生成节点的上下文
+
+    # metadata_qa 分支产出（generate_sql / execute_sql）
+    generated_sql: str              # LLM 生成、经校验的只读 SELECT（便于调试/审计）
+    sql_error: str                  # 上一次 SQL 执行错误（供重试节点消费）
+    sql_attempts: int               # 已尝试次数（控制重试上限）
+    sql_rows: list[dict[str, Any]]  # 查询结果行
+    sql_row_count: int              # 结果行数
 
     # generate_answer 产出
     answer: str
